@@ -3,30 +3,31 @@
 (() => {
   const params = process.argv.slice(2);
 
-  let result = 0;
+  let result = null;
 
-  if (params[0] === 'add') {
-    for (let i = 1; i < params.length; i++) {
-      if (isNaN(+params[i])) {
-        break;
+  switch (params[0]) {
+    case 'add':
+      for (let i = 1; i < params.length; i++) {
+        if (isNaN(Number(params[i]))) {
+          continue;
+        }
+        result += Number(params[i]);
       }
-      result += +params[i];
-    }
-    // eslint-disable-next-line
-    return console.log(result || 'There is nothing to add');
-  }
-
-  if (params[0] === 'multiply') {
-    for (let i = 1; i < params.length; i++) {
-      if (isNaN(+params[i])) {
-        break;
+      // eslint-disable-next-line
+      console.log(result === null ? 'There is nothing to add' : result);
+      break;
+    case 'multiply':
+      for (let i = 1; i < params.length; i++) {
+        if (isNaN(Number(params[i]))) {
+          continue;
+        }
+        result = result ? result * Number(params[i]) : Number(params[i]);
       }
-      result = result ? result * +params[i] : +params[i];
-    }
-    // eslint-disable-next-line
-    return console.log(result || 'There is nothing to multiply');
-  } else {
-    // eslint-disable-next-line
-    console.log('Operation is not supported!');
+      // eslint-disable-next-line
+      console.log(result === null ? 'There is nothing to multiply' : result);
+      break;
+    default:
+      // eslint-disable-next-line
+      console.log('Operation is not supported!');
   }
 })();
