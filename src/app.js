@@ -7,7 +7,7 @@ const NOT_SUPPORTED = 'Operation is not supported!';
 const SOMETHING_WENT_WRONG = 'Something went wrong';
 const NO_NUMBERS = (operator) => `There is nothing to ${operator}`;
 
-const chandleCommandParams = ([operator = null, ...rest]) => {
+const getData = ([operator, ...rest]) => {
   if (!operator) {
     return NO_OPERATOR;
   }
@@ -36,5 +36,5 @@ const chandleCommandParams = ([operator = null, ...rest]) => {
 
 // eslint-disable-next-line no-console
 console.log(
-  chandleCommandParams(process.argv.slice(2))
+  getData(process.argv.slice(2))
 );
