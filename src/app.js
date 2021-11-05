@@ -34,4 +34,7 @@ const chandleCommandParams = ([operator = null, ...rest]) => {
   }
 };
 
-chandleCommandParams(process.argv.slice(2));
+// eslint-disable-next-line no-console
+console.log(
+  chandleCommandParams(process.argv.slice(2))
+);
