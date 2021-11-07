@@ -38,3 +38,5 @@ const getData = ([operator, ...rest]) => {
 console.log(
   getData(process.argv.slice(2))
 );
+
+module.exports = getData;
