@@ -2,7 +2,7 @@
   "name": "node_sum-of-params",
   "version": "1.0.0",
   "description": "Sum of params",
-  "main": "src/app.mjs",
+  "main": "src/app.js",
   "scripts": {
     "init": "mate-scripts init",
     "start": "mate-scripts start",
