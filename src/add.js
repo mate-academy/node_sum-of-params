@@ -18,9 +18,9 @@ function add(params) {
 
   if (isNothingToAdd) {
     return 'There is nothing to add';
-  } else {
-    return sum;
   }
+
+  return sum;
 }
 
 module.exports = { add };

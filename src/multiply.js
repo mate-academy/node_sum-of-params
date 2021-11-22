@@ -18,9 +18,9 @@ function multiply(params) {
 
   if (isNothingToMultiply) {
     return 'There is nothing to multiply';
-  } else {
-    return mult;
   }
+
+  return mult;
 }
 
 module.exports = { multiply };
