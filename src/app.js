@@ -1,32 +1,18 @@
 'use strict';
 
-import dotenv from 'dotenv';
-import minimist from 'minimist';
+const { add } = require('./add');
+const { multiply } = require('./multiply');
 
-(async () => {
-  const add = await import('./add.js');
-  const multiply = await import ('./multiply.js');
+const operation = Object.values(process.argv.slice(2, 3)).flat()[0];
+const params = Object.values(process.argv.slice(3)).flat();
 
-  dotenv.config();
+switch (operation) {
+  case 'add':
+    return add(params);
 
-  const operation = Object.values(minimist(process.argv.slice(2, 3))).flat()[0];
-  const params = Object.values(minimist(process.argv.slice(3))).flat();
-  let result;
+  case 'multiply':
+    return multiply(params);
 
-  switch(operation) {
-    case 'add':
-      result = add.default.add(params);
-      break;
-
-    case 'multiply':
-      result = multiply.default.multiply(params);
-      break;
-
-    default:
-      result = 'Operation is not supported!';
-      break;
-  }
-
-  console.log(result);
-})();
-
+  default:
+    return 'Operation is not supported!';
+}

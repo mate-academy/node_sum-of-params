@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Sum of params",
   "main": "src/app.js",
-  "type": "module",
   "scripts": {
     "init": "mate-scripts init",
     "start": "mate-scripts start",
@@ -29,8 +28,5 @@
   },
   "mateAcademy": {
     "projectType": "javascript"
-  },
-  "dependencies": {
-    "dotenv": "^10.0.0"
   }
 }
