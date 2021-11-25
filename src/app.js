@@ -19,7 +19,7 @@ switch (action) {
     break;
   case 'multiply':
     console.log((filteredArgs.length > 0) ? (
-      filteredArgs.reduce((sum, a) => sum * a)
+      filteredArgs.reduce((a, b) => a * b)
     ) : (
       phrase + action
     ));
