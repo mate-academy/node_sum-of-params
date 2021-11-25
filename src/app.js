@@ -11,10 +11,18 @@ const phrase = 'There is nothing to ';
 
 switch (action) {
   case 'add':
-    (filteredArgs.length > 0) ? console.log(filteredArgs.reduce((sum, a) => sum + a)) : console.log(phrase + action);
+    console.log((filteredArgs.length > 0) ? (
+      filteredArgs.reduce((sum, a) => sum + a)
+    ) : (
+      phrase + action
+    ));
     break;
   case 'multiply':
-    (filteredArgs.length > 0) ? console.log(filteredArgs.reduce((sum, a) => sum * a)) : console.log(phrase + action);
+    console.log((filteredArgs.length > 0) ? (
+      filteredArgs.reduce((sum, a) => sum * a)
+    ) : (
+      phrase + action
+    ));
     break;
   default:
     console.log(`Operation is not supported!`);
