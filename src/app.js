@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
 'use strict';
 
-const add = (arr) => (
+const add = arr => (
   arr.reduce((prev, current) => prev + current, 0)
 );
 
-const multiply = (arr) => (
+const multiply = arr => (
   arr.reduce((prev, current) => prev * current, 1)
 );
 
@@ -22,7 +22,7 @@ const getResult = params => {
     return;
   }
 
-  const values = params.slice(1).map(el => Number(el)).filter(Boolean);
+  const values = params.slice(1).map(Number).filter(Boolean);
 
   if (values.length === 0) {
     console.log(`There is nothing to ${action}`);
