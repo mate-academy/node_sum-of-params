@@ -21,13 +21,13 @@ const getResult = params => {
 
 function add(params) {
   return params.reduce((acc, num) => {
-    return acc + parseInt(num);
+    return acc + num;
   }, 0);
 }
 
 function multiply(params) {
   return params.reduce((acc, num) => {
-    return acc * parseInt(num);
+    return acc * num;
   });
 }
 
