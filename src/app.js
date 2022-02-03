@@ -21,4 +21,5 @@ if (!numbers.length) {
   result = reducer(numbers, this[action]);
 }
 
+// eslint-disable-next-line no-console
 console.log(result);
