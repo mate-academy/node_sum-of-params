@@ -1,25 +1,22 @@
 'use strict';
 
-this.add = (a, b) => +a + +b;
-this.multiply = (a, b) => +a * +b;
-
-function reducer(array, callback) {
-  return array.reduce(callback);
-}
+const actions = {
+  add: (a, b) => Number(a) + Number(b),
+  multiply: (a, b) => Number(a) * Number(b),
+};
 
 const action = process.argv[2];
 const numbers = process.argv
   .slice(3)
-  .filter(item => !isNaN(+item));
+  .filter(item => !isNaN(Number(item)));
 let result = '';
 
 if (!numbers.length) {
-  result = `There is nothing to ${action}`;
+  result = `There is nothing to ${action || 'calculate'}`;
 } else if (action !== 'add' && action !== 'multiply') {
   result = 'Operation is not supported!';
 } else {
-  result = reducer(numbers, this[action]);
+  result = numbers.reduce(actions[action]);
 }
 
-// eslint-disable-next-line no-console
 console.log(result);
