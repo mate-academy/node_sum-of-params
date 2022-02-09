@@ -6,9 +6,5 @@ module.exports = {
   rules: {
     'no-proto': 0
   },
-  plugins: ['jest'],
-  parserOptions: {
-    sourceType: "module",
-    allowImportExportEverywhere: true
-  }
+  plugins: ['jest']
 };

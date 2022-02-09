@@ -1,6 +1,6 @@
 'use strict';
 
-import readline from 'readline';
+const readline = require('readline');
 
 const calculator = readline.createInterface({
   input: process.stdin,
