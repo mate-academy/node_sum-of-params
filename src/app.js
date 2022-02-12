@@ -5,7 +5,7 @@ const inputParams = process.argv.slice(3);
 
 const calculate = (action, params) => {
   const result = params
-    .filter(el => typeof +el === 'number')
+    .filter(el => !isNaN(Number(el)))
     .map(el => Number(el));
 
   if (!result.length && action) {
