@@ -19,11 +19,7 @@ function add(args) {
     return 'There is nothing to add';
   }
 
-  return args.reduce((accum, value) => {
-    if (isNaN(+value)) {
-      return accum;
-    }
-
+  return numbersArgs.reduce((accum, value) => {
     return accum + +value;
   }, 0);
 }
@@ -35,11 +31,7 @@ function multiply(args) {
     return 'There is nothing to multiply';
   }
 
-  return args.reduce((accum, value) => {
-    if (isNaN(+value)) {
-      return accum;
-    }
-
+  return numbersArgs.reduce((accum, value) => {
     return accum * +value;
   }, 1);
 }
