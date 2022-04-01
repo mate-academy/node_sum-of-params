@@ -3,31 +3,43 @@
 
 switch (process.argv[2]) {
   case 'add':
-    add(process.argv.slice(3));
+    console.log(add(process.argv.slice(3)));
     break;
   case 'multiply':
-    multiply(process.argv.slice(3));
+    console.log(multiply(process.argv.slice(3)));
     break;
   default:
     console.log('Operation is not supported!');
 }
 
 function add(args) {
-  console.log(args.reduce((accum, value) => {
+  const numbersArgs = args.filter(argument => !isNaN(+argument));
+
+  if (!numbersArgs.length) {
+    return 'There is nothing to add';
+  }
+
+  return args.reduce((accum, value) => {
     if (isNaN(+value)) {
-      return +accum;
+      return accum;
     }
 
-    return +accum + +value;
-  }, 0));
+    return accum + +value;
+  }, 0);
 }
 
 function multiply(args) {
-  console.log(args.reduce((accum, value) => {
+  const numbersArgs = args.filter(argument => !isNaN(+argument));
+
+  if (!numbersArgs.length) {
+    return 'There is nothing to multiply';
+  }
+
+  return args.reduce((accum, value) => {
     if (isNaN(+value)) {
-      return +accum;
+      return accum;
     }
 
-    return +accum * +value;
-  }, 1));
+    return accum * +value;
+  }, 1);
 }
