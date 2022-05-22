@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 'use strict';
 
 const [, , operation, ...values] = process.argv;
@@ -27,4 +26,4 @@ switch (operation) {
     result = 'Operation is not supported!';
 };
 
-console.log(result);
+process.stdout.write(result);
