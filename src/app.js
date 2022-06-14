@@ -1,30 +1,30 @@
 'use strict';
 
-const [, , action, ...items] = process.argv;
+const [action, ...items] = process.argv.slice(2);
 
 let result = '';
 
 function sorted(number, operation) {
   let buff = operation === 'multiply' ? 1 : 0;
 
-  number.map(elem => {
-    if (isNaN(+elem)) {
-      return;
-    }
+  const numbers = number.filter(elem => !isNaN(+elem));
 
-    switch (operation) {
-      case 'add':
-        buff += +elem;
-        break;
-      case 'multiply':
-        buff = buff * +elem;
-        break;
-      default:
-        buff = 'Operation is not supported!';
-    }
-  });
+  if (numbers.length !== 0) {
+    numbers.forEach(elem => {
+      switch (operation) {
+        case 'add':
+          buff += +elem;
 
-  if (number.length === 0) {
+          return;
+        case 'multiply':
+          buff = buff * +elem;
+
+          return;
+        default:
+          buff = 'Operation is not supported!';
+      }
+    });
+  } else {
     buff = `There is nothing to ${action}`;
   }
 
