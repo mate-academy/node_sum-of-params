@@ -6,6 +6,7 @@ const calculate = (operation, values) => {
   const numericValues = values.filter(x => +x);
 
   if (numericValues.length === 0) {
+    // eslint-disable-next-line
     console.log('There is nothing to add (or multiply)');
 
     return;
@@ -13,9 +14,13 @@ const calculate = (operation, values) => {
 
   switch (operation) {
     case 'add':
-      return numericValues.reduce((prev, curr) => Number(prev) + Number(curr), 0);
+      return numericValues.reduce(
+        (prev, curr) => Number(prev) + Number(curr), 0
+      );
     case 'multiply':
-      return numericValues.reduce((prev, curr) => Number(prev) * Number(curr));
+      return numericValues.reduce(
+        (prev, curr) => Number(prev) * Number(curr)
+      );
     default:
       // eslint-disable-next-line
       console.log('Operation is not supported!');
