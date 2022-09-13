@@ -2,20 +2,18 @@
 
 const terminalFunction = (mass) => {
   const [operation, ...array] = mass.slice(2);
-  let result = 0;
+  let result;
 
   switch (operation) {
     case ('add'):
-      for (const item of array) {
-        result += +item;
-      }
+      result = array.reduce((prev, current) => {
+        return +prev + +current;
+      });
       break;
     case ('multiply'):
-      result = 1;
-
-      for (const item of array) {
-        result *= +item;
-      }
+      result = array.reduce((prev, current) => {
+        return +prev * +current;
+      });
       break;
     default:
       return 'Operation is not supported!';
