@@ -19,15 +19,11 @@ const operation = process.argv[2];
 
 const operationCallback = getOperationCallback(operation);
 
-const numericValues = [];
+const numericValues = process.argv.slice(3)
+  .map(arg => Number(arg))
+  .filter(number => (!Number.isNaN(number)));
 
-process.argv.slice(3).forEach((arg) => {
-  const convertedValue = Number(arg);
-
-  if (typeof convertedValue === 'number' && !Number.isNaN(convertedValue)) {
-    numericValues.push(convertedValue);
-  }
-});
+console.log(numericValues);
 
 if (numericValues.length === 0) {
   console.log(`There is nothing to ${operation}`);
