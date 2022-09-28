@@ -4,17 +4,24 @@
 const operation = process.argv[2];
 const numberArgs = process.argv.filter(arg => Number.isFinite(+arg));
 
-if (!numberArgs.length) {
-  console.log('There is nothing to add');
-} else {
-  switch (operation) {
-    case 'add':
+switch (operation) {
+  case 'add':
+    if (!numberArgs.length) {
+      console.log('There is nothing to add');
+    } else {
       console.log(numberArgs.reduce((acc, num) => acc + Number(num), 0));
-      break;
-    case 'multiply':
+    }
+
+    break;
+  case 'multiply':
+    if (!numberArgs.length) {
+      console.log('There is nothing to add');
+    } else {
       console.log(numberArgs.reduce((acc, num) => acc * Number(num), 0));
-      break;
-    default:
-      console.log(`Operation is not supported!`);
-  }
+    }
+
+    break;
+  default:
+    console.log(`Operation is not supported!`);
+    break;
 }
