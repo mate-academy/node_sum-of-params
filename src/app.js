@@ -1,8 +1,13 @@
+/* eslint-disable no-console */
 'use strict';
 
 const [operation, ...args] = process.argv.slice(2);
 
 const argsFilter = args.filter(num => !isNaN(Number(num)));
+
+if (argsFilter.length === 0) {
+  console.log(`There is nothing to ${operation}`);
+}
 
 let operationResult;
 
@@ -19,5 +24,4 @@ switch (operation) {
     operationResult = 'Operation is not supported!';
 }
 
-// eslint-disable-next-line no-console
 console.log(operationResult);
