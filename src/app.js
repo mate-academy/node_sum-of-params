@@ -8,11 +8,11 @@ let operationResult;
 
 switch (operation) {
   case 'add':
-    operationResult = argsFilter.reduce((a, b) => a + b, 0);
+    operationResult = argsFilter.reduce((a, b) => Number(a) + Number(b), 0);
     break;
 
   case 'multiply':
-    operationResult = argsFilter.reduce((a, b) => a * b, 1);
+    operationResult = argsFilter.reduce((a, b) => Number(a) * Number(b), 1);
     break;
 
   default:
