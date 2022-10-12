@@ -2,8 +2,8 @@
 'use strict';
 
 const operation = String(process.argv.splice(2, 1));
-const nums = process.argv.slice(2).map(el => !isNaN(el)
-  ? Number(el)
+const nums = process.argv.slice(2).map(num => !isNaN(num)
+  ? Number(num)
   : null);
 
 if (nums.length === 0) {
