@@ -1,3 +1,6 @@
+// eslint-disable-next-line strict
+'use strict';
+
 import readline from 'readline';
 
 const args = process.argv.slice(2);
@@ -7,9 +10,14 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
+const finishWork = (value) => {
+  rl.write(value);
+  rl.close();
+};
+
 switch (args[0]) {
   case 'add':
-    const resAdd = args.slice(1).reduce((acc, item) => {
+    const resultAdd = args.slice(1).reduce((acc, item) => {
       if (isNaN(item)) {
         return +acc;
       }
@@ -17,19 +25,17 @@ switch (args[0]) {
       return +acc + +item;
     }, 0);
 
-    if (resAdd === 0) {
-      rl.write('There is nothing to add');
-      rl.close();
+    if (resultAdd === 0) {
+      finishWork('There is nothing to add');
 
       break;
     }
 
-    rl.write(`${resAdd}`);
-    rl.close();
+    finishWork(`${resultAdd}`);
     break;
 
   case 'multiply':
-    const resMultiply = args.slice(1).reduce((acc, item) => {
+    const resultMultiply = args.slice(1).reduce((acc, item) => {
       if (isNaN(item)) {
         return +acc * 1;
       }
@@ -37,17 +43,15 @@ switch (args[0]) {
       return +acc * +item;
     });
 
-    if (resMultiply === 0) {
-      rl.write('There is nothing to multiply');
-      rl.close();
+    if (resultMultiply === 0) {
+      finishWork('There is nothing to multiply');
 
       break;
     }
 
-    rl.write(`${resMultiply}`);
-    rl.close();
+    finishWork(`${resultMultiply}`);
     break;
+
   default:
-    rl.write('Operation is not supported!');
-    rl.close();
+    finishWork('Operation is not supported!');
 }
