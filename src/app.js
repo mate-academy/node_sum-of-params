@@ -2,19 +2,18 @@
 'use strict';
 
 function operate(oper, nums) {
-  if (oper !== 'add' && oper !== 'multiply') {
-    return 'Operation is not supported!';
-  }
-
   if (!nums.length) {
     return `There is nothing to ${operation}`;
   }
 
-  if (oper === 'add') {
-    return nums.reduce((sum, number) => sum + Number(number), 0);
+  switch (oper) {
+    case 'add':
+      return nums.reduce((sum, number) => sum + Number(number), 0);
+    case 'multiply':
+      return nums.reduce((sum, number) => sum * Number(number), 1);
+    default:
+      return 'Operation is not supported!';
   }
-
-  return nums.reduce((sum, number) => sum * Number(number), 1);
 }
 
 const operation = process.argv[2];
