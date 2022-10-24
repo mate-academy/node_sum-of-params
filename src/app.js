@@ -1,9 +1,6 @@
 /* eslint-disable no-console */
 'use strict';
 
-// eslint-disable-next-line no-debugger
-debugger;
-
 function add(...args) {
   if ([...args].every(el => Number.isNaN(+el))) {
     return 'There is nothing to add';
