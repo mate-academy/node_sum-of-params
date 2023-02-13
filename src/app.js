@@ -7,7 +7,7 @@ const [operator, ...rest] = minimist(process.argv.slice(2))._;
 
 const filtered = rest
   .map(item => Number(item))
-  .filter(item => !Number.isNaN(item));
+  .filter(item => !isNaN(item));
 
 console.log(filtered);
 
