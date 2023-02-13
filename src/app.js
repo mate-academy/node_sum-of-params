@@ -17,7 +17,7 @@ const getMessage = () => {
   }
 
   if (!operands.length) {
-    return 'There is nothing to add';
+    return `There is nothing to ${operation}`;
   }
 
   return result[operation];
