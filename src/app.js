@@ -1,37 +1,32 @@
+/* eslint-disable no-console */
 'use strict';
 
 const minimist = require('minimist');
 
-const inputArray = minimist(process.argv.slice(2))._;
+const [operator, ...rest] = minimist(process.argv.slice(2))._;
+
+const filtered = rest
+  .map(item => Number(item))
+  .filter(item => !Number.isNaN(item));
+
+console.log(filtered);
 
 const add = () => {
-  let total = 0;
-
-  for (let i = 1; i < inputArray.length; i++) {
-    total += inputArray[i];
-  }
-
-  return total;
+  return filtered.reduce((total, item) => total + item, 0);
 };
 
 const multiply = () => {
-  let total = 1;
-
-  if (inputArray.length < 2) {
-    return 'Nothing to multiply';
-  }
-
-  for (let i = 1; i < inputArray.length; i++) {
-    total *= inputArray[i];
-  }
-
-  return total;
+  return filtered.reduce((total, item) => total * item, 1);
 };
 
 const result = () => {
-  if (inputArray[0] === 'add') {
+  if (filtered.length === 0) {
+    console.log(`There is nothing to ${operator}`);
+  }
+
+  if (operator === 'add') {
     return add();
-  } else if (inputArray[0] === 'multiply') {
+  } else if (operator === 'multiply') {
     return multiply();
   } else {
     return 'Operation not supported';
