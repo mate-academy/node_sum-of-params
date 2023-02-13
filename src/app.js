@@ -1,7 +1,5 @@
 'use strict';
 
-const operation = process.argv[2];
-
 const operands = process.argv.slice(3)
   .filter(n => !isNaN(Number(n)))
   .map(n => Number(n));
@@ -11,19 +9,19 @@ const result = {
   multiply: operands.reduce((a, b) => a * b, 1),
 };
 
-let message = result[operation];
+const operation = process.argv[2];
 
-switch (true) {
-  case !(operation in result):
-    message = 'Operation is not supported!';
-    break;
+const getMessage = () => {
+  if (!(operation in result)) {
+    return 'Operation is not supported!';
+  }
 
-  case !operands.length:
-    message = 'There is nothing to add';
-    break;
+  if (!operands.length) {
+    return 'There is nothing to add';
+  }
 
-  default: break;
-}
+  return result[operation];
+};
 
 // eslint-disable-next-line no-console
-console.log(message);
+console.log(getMessage());
