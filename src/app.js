@@ -1,22 +1,22 @@
-"use strict";
+'use strict';
 
 const operation = process.argv[2];
 const params = process.argv.slice(3);
 
 const calculate = () => {
   if (!params.length) {
-    return "There is nothing to add";
+    return 'There is nothing to add';
   }
 
   switch (operation) {
-    case "add":
+    case 'add':
       return params.reduce((a, b) => Number(a) + Number(b));
 
-    case "multiply":
+    case 'multiply':
       return params.reduce((a, b) => Number(a) * Number(b));
 
     default:
-      return "Operation is not supported";
+      return 'Operation is not supported';
   }
 };
 
