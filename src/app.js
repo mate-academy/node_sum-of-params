@@ -9,7 +9,8 @@ const numbers = args.slice(1).filter(arg => !isNaN(arg)).map(Number);
 
 if (!numbers.length) {
   switch (operation) {
-    case 'add' || 'multiply':
+    case 'add':
+    case 'multiply':
       console.log(`There is nothing to ${operation}`);
       break;
     default:
