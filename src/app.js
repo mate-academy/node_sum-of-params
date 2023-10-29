@@ -2,7 +2,7 @@
 
 const operands = process.argv.slice(3)
   .map(Number)
-  .filter(!isNaN(n))
+  .filter(!isNaN)
 
 const result = {
   add: operands.reduce((a, b) => a + b, 0),
