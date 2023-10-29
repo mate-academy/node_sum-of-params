@@ -1,8 +1,8 @@
 'use strict';
 
 const operands = process.argv.slice(3)
-  .filter(n => !isNaN(Number(n)))
-  .map(n => Number(n));
+  .map(Number)
+  .filter(!isNaN(n))
 
 const result = {
   add: operands.reduce((a, b) => a + b, 0),
