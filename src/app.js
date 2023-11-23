@@ -18,11 +18,17 @@ const multiply = (numberArray) => {
 
 switch (operation) {
   case 'add':
+    if (!nanRemovedNumbers.length) {
+      return 'There is nothing to add';
+    }
     add(nanRemovedNumbers);
     break;
   case 'multiply':
+    if (!nanRemovedNumbers.length) {
+      return 'There is nothing to multiply';
+    }
     multiply(nanRemovedNumbers);
     break;
   default:
-    return nanRemovedNumbers;
+    return 'Operation is not supported!';
 }
