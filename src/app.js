@@ -3,10 +3,10 @@
 const args = process.argv.slice(2);
 const [option, ...numbers] = args;
 
-const handelReadLine = () => {
+const handleReadLine = () => {
   const onlyNumbers = numbers.filter((number) => !isNaN(number));
 
-  if (onlyNumbers.length === 0) {
+  if (onlyNumbers.length) {
     return 'There is nothing to add';
   };
 
@@ -27,4 +27,4 @@ const handelReadLine = () => {
 };
 
 // eslint-disable-next-line no-console
-console.log(handelReadLine());
+console.log(handleReadLine());
